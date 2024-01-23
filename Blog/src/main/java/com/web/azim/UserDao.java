@@ -35,5 +35,26 @@ public class UserDao {
 		 
 		return false;
 	}
+	
+	public boolean insert(String name,String username, String password) {
+		String query = "Insert into user(name,username,password)values(?,?,?);";
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+			Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/users","root","");
+			PreparedStatement stmt = con.prepareStatement(query);
+			stmt.setString(1, name);
+			stmt.setString(2, username);
+			stmt.setString(3, password);
+			Integer rs = stmt.executeUpdate();
+			
+			if (rs!=0) {
+				return true;
+	         }
+		}
+		catch(Exception e) {
+			System.out.println(e);
+		}
+		return false;
+	}
 
 }

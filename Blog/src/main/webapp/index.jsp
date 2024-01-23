@@ -20,7 +20,7 @@
 			if(session.getAttribute("username")==null){
 		%>
 		<li><a href="Login.jsp">Login</a></li>
-		<li><a href="/Register">Register</a></li>
+		<li><a href="Register.jsp">Register</a></li>
 		<%
 			}
 		%>
