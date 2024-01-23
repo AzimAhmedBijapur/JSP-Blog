@@ -14,16 +14,26 @@
 <header>
 	<nav>
 	<ul>
-		<li><a href="Blog/Explore">Explore</a></li>
-		<li><a href="/WriteBlog">Post</a></li>
+		<li><a href="Explore">Explore</a></li>
+		<li><a href="WriteBlog">Post</a></li>
 		<%
 			if(session.getAttribute("username")==null){
 		%>
 		<li><a href="Login.jsp">Login</a></li>
+		<li><a href="/Register">Register</a></li>
 		<%
 			}
 		%>
-		<li><a href="/Register">Register</a></li>
+		<%
+			if(session.getAttribute("username")!=null){
+		%>
+		<li><form method="post" action="Logout">
+			<input type="submit" value="Logout">
+		</form>
+		</li>
+		<%
+			}
+		%>
 	</ul>
 	</nav>
 </header>
